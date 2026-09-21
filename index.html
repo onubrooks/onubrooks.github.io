@@ -1,6 +1,359 @@
----
-layout: home
-author_profile: true
-header:
-  image: "/images/waterfront.jpg"
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Onu Abah | Senior Data Engineer</title>
+  <meta name="description" content="Senior Data Engineer building reliable financial data platforms and AI-powered analytics products.">
+  <meta property="og:title" content="Onu Abah | Senior Data Engineer">
+  <meta property="og:description" content="Financial data platforms, reliable pipelines, and governed AI analytics.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://onubrooks.github.io">
+  <style>
+    :root {
+      --ink: #10231f;
+      --muted: #526761;
+      --paper: #f5f4ee;
+      --card: #fffdf7;
+      --line: #d8ddd7;
+      --green: #125b49;
+      --green-dark: #0b4034;
+      --gold: #d7a83d;
+      --shadow: 0 18px 50px rgba(16, 35, 31, .09);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 92% 4%, rgba(215,168,61,.18), transparent 28rem),
+        radial-gradient(circle at 4% 26%, rgba(18,91,73,.10), transparent 26rem),
+        var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+    .mark { font-size: 1.05rem; font-weight: 800; letter-spacing: -.02em; text-decoration: none; }
+    .navlinks { display: flex; gap: 24px; font-size: .94rem; }
+    .navlinks a { color: var(--muted); text-decoration: none; }
+    .navlinks a:hover { color: var(--green); }
+    .hero {
+      min-height: 72vh;
+      display: grid;
+      grid-template-columns: 1.5fr .8fr;
+      align-items: center;
+      gap: 64px;
+      padding: 72px 0 96px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+      font-weight: 750;
+      font-size: .82rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 34px; height: 2px; background: var(--gold); }
+    h1 {
+      max-width: 800px;
+      margin: 20px 0 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      line-height: .96;
+      letter-spacing: -.055em;
+      font-weight: 700;
+    }
+    .lead { max-width: 720px; color: var(--muted); font-size: clamp(1.08rem, 2vw, 1.3rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid var(--green);
+      border-radius: 999px;
+      color: var(--green);
+      font-weight: 750;
+      text-decoration: none;
+    }
+    .button.primary { background: var(--green); color: white; }
+    .button:hover { transform: translateY(-2px); }
+    .hero-note {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,253,247,.75);
+      box-shadow: var(--shadow);
+    }
+    .hero-note strong { display: block; font-size: 1.15rem; margin-bottom: 10px; }
+    .hero-note p { color: var(--muted); margin: 0; }
+    section { padding: 88px 0; border-top: 1px solid var(--line); }
+    .section-head {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 48px;
+      margin-bottom: 42px;
+    }
+    h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .section-head p { max-width: 700px; margin: 0; color: var(--muted); font-size: 1.05rem; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 270px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: 0 8px 28px rgba(16,35,31,.05);
+    }
+    .card .number { color: var(--gold); font-weight: 850; font-size: .8rem; letter-spacing: .1em; }
+    .card h3 { margin: 42px 0 10px; font-size: 1.25rem; line-height: 1.25; }
+    .card p { color: var(--muted); margin: 0; }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project {
+      position: relative;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+    }
+    .project.featured {
+      grid-column: 1 / -1;
+      min-height: 330px;
+      background: var(--green-dark);
+      color: white;
+      border-color: transparent;
+    }
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      opacity: .8;
+    }
+    .project h3 {
+      max-width: 720px;
+      margin: 26px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.5rem);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+    .project p { max-width: 760px; color: var(--muted); }
+    .project.featured p { color: rgba(255,255,255,.74); font-size: 1.05rem; }
+    .project a { display: inline-block; margin-top: 20px; color: var(--green); font-weight: 800; }
+    .project.featured a { color: #f5c861; }
+    .stack { display: flex; flex-wrap: wrap; gap: 10px; }
+    .stack span {
+      padding: 9px 13px;
+      background: rgba(18,91,73,.08);
+      border: 1px solid rgba(18,91,73,.12);
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: .88rem;
+    }
+    .experience {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 40px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+    }
+    .experience:first-child { border-top: 0; }
+    .experience .when { color: var(--muted); font-size: .9rem; }
+    .experience h3 { margin: 0 0 8px; font-size: 1.3rem; }
+    .experience p { margin: 0; color: var(--muted); }
+    .contact {
+      padding: 52px;
+      border-radius: 30px;
+      background: var(--green-dark);
+      color: white;
+      text-align: center;
+    }
+    .contact h2 { max-width: 800px; margin: 0 auto 20px; }
+    .contact p { max-width: 650px; margin: 0 auto; color: rgba(255,255,255,.72); }
+    .contact .actions { justify-content: center; }
+    .contact .button { border-color: rgba(255,255,255,.75); color: white; }
+    .contact .button.primary { background: white; color: var(--green-dark); }
+    footer { padding: 32px 0 46px; color: var(--muted); font-size: .88rem; }
+    @media (max-width: 820px) {
+      .navlinks { display: none; }
+      .hero, .section-head, .experience { grid-template-columns: 1fr; }
+      .hero { min-height: auto; gap: 28px; padding: 46px 0 72px; }
+      .grid, .projects { grid-template-columns: 1fr; }
+      .project.featured { grid-column: auto; }
+      section { padding: 64px 0; }
+      .contact { padding: 38px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav aria-label="Primary navigation">
+      <a class="mark" href="#">Onu Abah</a>
+      <div class="navlinks">
+        <a href="#expertise">Expertise</a>
+        <a href="#work">Selected work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Senior Data Engineer</span>
+        <h1>Reliable data.<br>Explainable AI.<br>Better decisions.</h1>
+        <p class="lead">I design financial data platforms, production-grade pipelines, and governed AI analytics products. My work sits at the intersection of data engineering, backend systems, and financial controls.</p>
+        <div class="actions">
+          <a class="button primary" href="#work">Explore my work</a>
+          <a class="button" href="https://github.com/onubrooks">GitHub</a>
+          <a class="button" href="https://www.linkedin.com/in/onu-abah">LinkedIn</a>
+        </div>
+      </div>
+      <aside class="hero-note">
+        <strong>Based in Abuja, Nigeria</strong>
+        <p>Open to senior international roles with worldwide remote eligibility or relocation support.</p>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="expertise">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What I build</h2>
+          <p>I care about systems whose numbers must be trusted: systems that are rerunnable, observable, explainable, and safe at their publication boundaries.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <span class="number">01</span>
+            <h3>Financial data platforms</h3>
+            <p>Reconciliation, revenue and expense assurance, tax invoicing, finance analytics, dimensional models, and audit-ready data flows.</p>
+          </article>
+          <article class="card">
+            <span class="number">02</span>
+            <h3>Reliable data pipelines</h3>
+            <p>Incremental processing, deterministic matching, idempotent partition publication, bounded backfills, data-quality gates, and actionable alerting.</p>
+          </article>
+          <article class="card">
+            <span class="number">03</span>
+            <h3>AI-powered analytics</h3>
+            <p>Metadata-grounded assistants, constrained SQL tools, retrieval systems, transparent evidence, streaming interfaces, and evaluation workflows.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Selected work</h2>
+          <p>Public projects that demonstrate how I think about trustworthy data systems, architecture trade-offs, operational controls, and accessible analytics.</p>
+        </div>
+        <div class="projects">
+          <article class="project featured">
+            <span class="tag">Featured open source</span>
+            <h3>DataChat Community — transparent AI-assisted database analysis</h3>
+            <p>An AI data assistant that turns natural-language questions into validated, read-only SQL and evidence-backed answers. It supports multiple databases and exposes the generated SQL, data, visualizations, evidence, and execution timing rather than hiding the reasoning path.</p>
+            <a href="https://github.com/onubrooks/datachat-community">View DataChat Community →</a>
+          </article>
+          <article class="project">
+            <span class="tag">Warehouse design</span>
+            <h3>Trading Data Warehouse</h3>
+            <p>A DuckDB prototype demonstrating layered ingestion, CDC historization, dimensional modelling, quarantine controls, safe reruns, late data handling, and PII protection.</p>
+            <a href="https://github.com/onubrooks/deriv-data-project">View repository →</a>
+          </article>
+          <article class="project">
+            <span class="tag">Financial controls</span>
+            <h3>ReconFlow</h3>
+            <p>An open-source direction for configuration-driven reconciliation and assurance, with deterministic matching, pricing strategies, validation, and audit evidence.</p>
+            <a href="https://github.com/onubrooks/reconflow">View repository →</a>
+          </article>
+          <article class="project">
+            <span class="tag">Orchestration</span>
+            <h3>Stock and News Sentiment Pipeline</h3>
+            <p>An Airflow workflow that combines structured market data and unstructured news sentiment for machine-learning use cases, with data-quality checks, Docker, object storage, and Terraform.</p>
+            <a href="https://github.com/onubrooks/Stock-Data-News-Sentiment-Pipeline">View repository →</a>
+          </article>
+          <article class="project">
+            <span class="tag">Google Cloud</span>
+            <h3>Airflow to BigQuery Pipeline</h3>
+            <p>A reproducible pipeline demonstrating API ingestion, workflow orchestration, transformation, testing, and analytics delivery on Google Cloud.</p>
+            <a href="https://github.com/onubrooks/Airflow-SocrataAPI-BigQuery-Data-Pipeline">View repository →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p>More than eight years across backend engineering and data engineering, with recent work focused on financial systems and enterprise AI.</p>
+        </div>
+        <div>
+          <article class="experience">
+            <div class="when">Current</div>
+            <div>
+              <h3>Finance Systems Data Engineering · Moniepoint</h3>
+              <p>Designing and improving high-volume financial reconciliation, assurance, tax-invoicing, data-quality, and analytics systems using Python, SQL, Airflow, ClickHouse, and Google Cloud. Also contributing to a governed finance data assistant grounded in approved metadata and business context.</p>
+            </div>
+          </article>
+          <article class="experience">
+            <div class="when">Earlier</div>
+            <div>
+              <h3>Software Engineering · Automattic and fintech teams</h3>
+              <p>Built backend applications, APIs, payment systems, and data-intensive product features in distributed engineering environments. This software foundation continues to shape how I design maintainable data platforms and AI products.</p>
+            </div>
+          </article>
+        </div>
+        <div class="stack" aria-label="Core technologies">
+          <span>Python</span><span>SQL</span><span>Airflow</span><span>ClickHouse</span>
+          <span>BigQuery</span><span>dbt</span><span>PostgreSQL</span><span>MySQL</span>
+          <span>FastAPI</span><span>LangChain</span><span>Docker</span><span>GCP</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <h2>Building a data platform where correctness really matters?</h2>
+          <p>I’m interested in senior data engineering, data platform, financial data, and AI data engineering opportunities.</p>
+          <div class="actions">
+            <a class="button primary" href="https://www.linkedin.com/in/onu-abah">Connect on LinkedIn</a>
+            <a class="button" href="https://github.com/onubrooks">Explore GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © 2026 Onu Abah · Data engineering, financial systems, and applied AI.
+  </footer>
+</body>
+</html>
